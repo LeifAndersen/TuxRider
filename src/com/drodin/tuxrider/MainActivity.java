@@ -296,7 +296,7 @@ public class MainActivity extends Activity {
 				fdir.mkdirs();
 			
 			ZipInputStream zs = new ZipInputStream(mAssetManager.open("files.zip", AssetManager.ACCESS_BUFFER));
-
+			
 			ZipEntry item;
 			while( (item = zs.getNextEntry())!=null ) {
 

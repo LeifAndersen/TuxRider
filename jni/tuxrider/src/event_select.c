@@ -381,7 +381,7 @@ static void set_widget_positions_and_draw_decorations()
     } else {
         bind_font_texture( font );
 #ifdef __APPLE__
-        string = "Select a training";
+        string = "Select a challenge";
 #else
         string = "Select event and cup";
 #endif
@@ -410,11 +410,11 @@ static void set_widget_positions_and_draw_decorations()
     cur_cup = listbox_get_current_item( cup_listbox );
     
     if ( is_cup_complete( event_data, cur_cup ) ) {
-        string = "You've won this Training !";
+        string = "You've won this challenge!";
     } else if ( is_cup_first_incomplete_cup( event_data, cur_cup ) ) {
-        string = "You must complete this training first";
+        string = "You must complete this challenge first";
     } else {
-        string = "You cannot enter this training yet"; 
+        string = "You cannot enter this challenge yet";
     }
     
     if ( !get_font_binding( "cup_status", &font ) ) {

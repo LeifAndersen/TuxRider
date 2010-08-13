@@ -196,7 +196,7 @@ static void game_type_select_init(void)
     enter_event_btn = button_create( dummy_pos,
 				     300 * mHeight / 320, 40 * mHeight / 320, 
 				     "button_label", 
-				     "Training" );
+				     "Challenge" );
     button_set_hilit_font_binding( enter_event_btn, "button_label_hilit" );
     button_set_visible( enter_event_btn, True );
     button_set_click_event_cb( enter_event_btn, enter_event_click_cb, NULL );
@@ -205,7 +205,7 @@ static void game_type_select_init(void)
 				  300 * mHeight / 320, 40 * mHeight / 320,
 				  "button_label",
 				  //"World challenge" );
-				  "Challenge" );
+				  "Freestyle" );
     button_set_hilit_font_binding( practice_btn, "button_label_hilit" );
     button_set_visible( practice_btn, True );
     button_set_click_event_cb( practice_btn, practice_click_cb, NULL );
