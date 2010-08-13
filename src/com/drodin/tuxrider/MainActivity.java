@@ -47,11 +47,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-import com.admob.android.ads.AdListener;
-import com.admob.android.ads.AdManager;
-import com.admob.android.ads.AdView;
-
-public class MainActivity extends Activity implements AdListener {
+public class MainActivity extends Activity {
 
 	public boolean firstRun = true;
 
@@ -66,7 +62,6 @@ public class MainActivity extends Activity implements AdListener {
 
 	private static MainView mMainView = null;
 	private static LinearLayout mOverlayView = null;
-	private static AdView mAdView = null;
 
 	public SensorManager mSensorManager = null; 
 	public List<Sensor> mSensors = null; 
@@ -92,8 +87,6 @@ public class MainActivity extends Activity implements AdListener {
 		getWindow().setFlags(
 				WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
 				WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
-		AdManager.setTestDevices(new String[] {AdManager.TEST_EMULATOR});
 
 		mNativeLib = new NativeLib(getApplicationContext());
 		
@@ -279,15 +272,6 @@ public class MainActivity extends Activity implements AdListener {
 		case NativeLib.RACE_SELECT:
 		case NativeLib.PREFERENCE:
 		case NativeLib.LOADING:
-			if (mAdView == null) {
-				mAdView = new AdView(this);
-				mAdView.setAdListener(this);
-
-				mOverlayView.removeAllViews();
-
-				mOverlayView.addView(mAdView,
-						new LayoutParams(320, 48));
-			}
 			if (gameMode != NativeLib.SPLASH)
 				mOverlayView.setBackgroundDrawable(getResources().getDrawable(R.drawable.transparent));
 			else
@@ -295,9 +279,6 @@ public class MainActivity extends Activity implements AdListener {
 			break;
 		default:
 			mOverlayView.removeAllViews();
-			if (mAdView != null) {
-				mAdView = null;
-			}
 			mOverlayView.setBackgroundDrawable(getResources().getDrawable(R.drawable.transparent));
 			break;
 		}
@@ -347,26 +328,6 @@ public class MainActivity extends Activity implements AdListener {
 		{
 			//noop
 		}
-	}
-
-	public void onFailedToReceiveAd(AdView arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void onFailedToReceiveRefreshedAd(AdView arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void onReceiveAd(AdView arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void onReceiveRefreshedAd(AdView arg0) {
-		// TODO Auto-generated method stub
-
 	}
 
 }
